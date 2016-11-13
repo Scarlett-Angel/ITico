@@ -17,7 +17,7 @@ class model_word extends common_database{
         $this->get_set('location','/model/word.php');
     }
     public function id_to_word($id) {
-        $word = $this->execute_query([$id], 'SELECT word FROM word WHERE id = ?', 2);
+        $word = $this->execute_query([$id], 'SELECT word FROM word WHERE id = ?', 1);
         return $word[0];
     }
 }
