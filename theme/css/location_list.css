@@ -1,0 +1,36 @@
+/*
+Copyright (C) Itico Ltd. - All Rights Reserved
+Unauthorised copying of this file, via any medium is strictly prohibited
+Proprietary and confidential
+Written by Stephen Mclaughlin <admin@scarlett-angel.co.uk>
+*/
+/* 
+    Created on : 14-Nov-2016, 14:19:12
+    Author     : Stephen McLaughlin
+*/
+
+.location_list {
+    text-align:center;
+}
+.location_list a {
+
+    padding: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+.location_list a:hover, .location_list a:focus,.location_list a:active {
+    -webkit-transform: scale(2.5);
+    transform: scale(1.5);
+    z-index:999;
+}
+

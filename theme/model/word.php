@@ -12,7 +12,7 @@
  * @author user
  */ 
 class model_word extends common_database{
-    function __contstruct(){
+    function __construct(){
         parent::__construct();
         $this->get_set('location','/model/word.php');
     }

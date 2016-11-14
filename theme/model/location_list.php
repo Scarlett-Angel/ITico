@@ -12,7 +12,7 @@
  *
  * @author user
  */
-class model_location extends common_database {
+class model_location_list extends common_database {
 
     function __contstruct() {
         parent::__construct();

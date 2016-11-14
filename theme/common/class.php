@@ -34,7 +34,7 @@ class common_class {
      *      array of string with the name of the property to be created
      */
 
-    function set_class_properties($properties) {
+   function set_class_properties($properties) {
         foreach ($properties as $property) {
             $line = '$this->private_' . $property . ' = null;';
             eval($line);
@@ -55,7 +55,7 @@ class common_class {
      *      loose typed data stored in the property
      */
 
-    public function get_set($property, $var = null) {
+    function get_set($property, $var = null) {
         if ($var === Null) {
             $line = '$result = $this->private_' . $property . ';';
             eval($line);
@@ -73,7 +73,7 @@ class common_class {
      *
      */
 
-    public function error_handler($error) {
+    function error_handler($error) {
         file_put_contents('../log/error_log.txt', $error . ' | time ' . time() . " | " . $this->private_location . "\n", FILE_APPEND);
     }
 

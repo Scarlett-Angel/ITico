@@ -18,7 +18,7 @@ class shortcode_builder {
 
     public function set_shortcode($shortcode_names) {
         foreach ($shortcode_name as $name) {
-            $line = 'add_shortcode("'.$name., '", function() { ob_start();';
+            $line = 'add_shortcode("'.$name.'", function() { ob_start();';
             ob_start();
             include('/shortcode_contents/' . $name . '.php');
             $contents = ob_get_clean();
