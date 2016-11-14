@@ -17,10 +17,10 @@ class model_word_list extends common_database {
         $this->get_set('location','/model/word_list.php');
     }
     public function id_to_word_ids($id) {
-        return $this->execute_query([$id], 'SELECT wordID FROM word_list_item WHERE wordListID = ?', 'id_to_values');
+        return $this->execute_query([$id], 'SELECT wordID FROM word_list_item WHERE wordListID = ?', 1);
     }
     public function id_to_rand_word_id($id) {
-        return $this->execute_query([$id], 'SELECT wordID FROM word_list_item WHERE wordListID = ? order by rand() limit 1', 'id_to_value');
+        return $this->execute_query([$id], 'SELECT wordID FROM word_list_item WHERE wordListID = ? order by rand() limit 1', 1);
     }
 
 }

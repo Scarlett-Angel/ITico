@@ -23,7 +23,10 @@ class common_list extends common_class {
          */
         $this->get_set('location', '/common/list.php');
     }
-
+    
+    function load_id($id){
+            $this->get_set('id', $id);
+        }
     /*
      * load_ids_from_id
      *      when a new instance of the class is created id the of the list can be used in two ways
@@ -43,7 +46,7 @@ class common_list extends common_class {
         switch ($class_type) {
             case 'word_list' :
                 /*
-                 * iff an id has already been set, load it it into a local variable
+                 * iff an id has already been set, load it into a local variable
                  * if not the value will be NULL
                  */
                 $con_id = $this->get_set('id');
