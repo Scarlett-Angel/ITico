@@ -13,7 +13,7 @@ class common_list extends common_class {
          * $properties
          *      array of strings to declare the properties to be set for the class
          */
-        $properties = ['list_ids', 'list_values', 'type'];
+        $properties = array('list_ids', 'list_values', 'type');
         /*
          * call function from common_class to set the properties
          */

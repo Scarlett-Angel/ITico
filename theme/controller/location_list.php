@@ -20,7 +20,7 @@ class controller_location_list extends common_list {
          * $properties
          *      array of strings to declare the properties to be set for the class
          */
-        $properties = ['css_path', 'location_list_visibility', 'county_list', 'town_list', 'page_url'];
+        $properties = array('css_path', 'location_list_visibility', 'county_list', 'town_list', 'page_url');
         /*
          * call function from common_class to set the properties
          */
@@ -42,7 +42,7 @@ class controller_location_list extends common_list {
     }
  function set_location_list($var) {
         foreach($var as $var){
-            $row_set[] = [$var];
+            $row_set[] = array($var);
         }
         $this->get_set('list_values', $row_set);
  }
@@ -58,7 +58,6 @@ class controller_location_list extends common_list {
         $return_string = '<link rel="stylesheet" type="text/css" href="' . dyna_URL . $this->get_set('css_path') . '">';
         $return_string .= '<div class="location_list">';
         $list_items = $this->get_set('list_values');
-        print_r($list_items);
         foreach ($list_items as $item) {
             if (rand(1, 100) <= $this->get_set('location_list_visibility')) {
                 $return_string.= '<a href="?location=' . urlencode($item[0]) . '">' . $item[0] . '</a>';

@@ -19,7 +19,7 @@ class model_complex extends common_database {
     }
     
     function id_to_complex_string($id){
-        $word = $this->execute_query([$id], 'SELECT value FROM complex WHERE id = ?', 1);
+        $word = $this->execute_query(array($id), 'SELECT value FROM complex WHERE id = ?', 1);
         return $word[0];
     }
 }

@@ -20,7 +20,7 @@ class model_location_list extends common_database {
     }
 
     public function towns_from_county($id) {
-        $towns = $this->execute_query([$id], 'SELECT Town from uk_towns where County=?', 1);
+        $towns = $this->execute_query(array($id), 'SELECT Town from uk_towns where County=?', 1);
         return $towns;
     }
 

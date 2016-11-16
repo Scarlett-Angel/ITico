@@ -1,14 +1,20 @@
 <?php
-
-/* 
- * Copyright (C) Itico Ltd. - All Rights Reserved
- * Unauthorised copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- * Written by Stephen Mclaughlin <admin@scarlett-angel.co.uk>
- */
-include_once('sidebar-list.php');
-include_once('nail-salon-glasgow.php');
 include_once('sa_config.php');
-$shortcode_names = array('nail-salon-glasgow');
-$shortcode_builder = new shortcode_builder();
-$shortcode_builder->set_shortcode($shortcode_names);
+include_once ('common/class.php');
+include_once('common/list.php');
+include_once('common/database.php');
+include_once('common/writer.php');
+include_once('model/word.php');
+include_once('model/location_list.php');
+include_once('model/word_list.php');
+include_once('model/complex.php');
+include_once('model/complex_list.php');
+include_once('model/sentence.php');
+include_once('controller/location_list.php');
+include_once('controller/word_list.php');
+include_once('controller/sentence.php');
+include_once('contents/about-airport-parking.php');
+include_once('contents/airport-parking-uk.php');
+include_once('contents/airport-parking.php');
+include_once('contents/airport-sidebar-list.php');
+include_once('contents/airport_parking.php');
