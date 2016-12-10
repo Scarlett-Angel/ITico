@@ -18,15 +18,10 @@ function savePhoto(data){
  
  
  db.transaction(function(tx) {
-  tx.executeSql('CREATE TABLE IF NOT EXISTS img_table (PhotoID, PictureFile, Longitude, Latitude, Timestamp id integer primary key, data text, data_num integer)');
+  tx.executeSql('CREATE TABLE IF NOT EXISTS img_table (id integer primary key, PictureFile blog, Longitude text, Latitude text)');
  
-  tx.executeSql("INSERT INTO test_table (data, data_num) VALUES (?,?)", ["test", 100], function(tx, res) {
-    console.log("insertId: " + res.insertId + " -- probably 1");
-    console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
- 
-  }, function(e) {
-    console.log("ERROR: " + e.message);
-  });
+  tx.executeSql("INSERT INTO img_table (data, data_num) VALUES (?,?)");
+   tx.executeSql('INSERT INTO Photos(PhotoID, PictureFile, Longitude, Latitude, Timestamp ) VALUES( '+ timestamp+' ,' + data + '", ' +  cameraLong +', '+ cameraLat  +'")');
 });
 //output image to screen
     cameraPic.src =  data;
