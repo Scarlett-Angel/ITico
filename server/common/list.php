@@ -13,7 +13,7 @@ class common_list extends common_class {
          * $properties
          *      array of strings to declare the properties to be set for the class
          */
-        $properties = ['list_ids', 'list_values', 'type'];
+        $properties = array('list_ids', 'list_values', 'type');
         /*
          * call function from common_class to set the properties
          */
@@ -23,7 +23,10 @@ class common_list extends common_class {
          */
         $this->get_set('location', '/common/list.php');
     }
-
+    
+    function load_id($id){
+            $this->get_set('id', $id);
+        }
     /*
      * load_ids_from_id
      *      when a new instance of the class is created id the of the list can be used in two ways
@@ -34,7 +37,8 @@ class common_list extends common_class {
      *      set this propertie to pass the list id as a paremeter and overide the private property id
      */
 
-    public function load_ids_from_id($var = null) {
+
+    private function load_list_from_id($var = null) {
         /*
          * load the extended class type into a local variable
          */
@@ -42,7 +46,7 @@ class common_list extends common_class {
         switch ($class_type) {
             case 'word_list' :
                 /*
-                 * iff an id has already been set, load it it into a local variable
+                 * iff an id has already been set, load it into a local variable
                  * if not the value will be NULL
                  */
                 $con_id = $this->get_set('id');
@@ -70,7 +74,7 @@ class common_list extends common_class {
                      * if the word list exists and has word ids int he list 
                      * set to the private property for the list of ids
                      */
-                    $this->get_set('list_ids', $word_list_ids);
+                    $this->get_set('list_values', $word_list_ids);
                 } //$word_list_ids === false
                 else {
                     $error = "word list with id of $var does not have any words or does not exist";
@@ -138,8 +142,7 @@ class common_list extends common_class {
                 $word = $model_word->id_to_word($model_word_list->id_to_rand_word_id($var));
                 if ($word !== false) {
                     return $word;
-                }
-                else {
+                } else {
                     $error = "Either world list doesnt exists, the word list doesnt contain any word ids or the word id does not identify a word";
                     $this->error_handler($error);
                 }
@@ -149,6 +152,7 @@ class common_list extends common_class {
     /*
      * rand_value_from_property
      */
+
     private function rand_value_from_property() {
         $class_type = $this->get_set('type');
         switch ($class_type) {
@@ -165,5 +169,6 @@ class common_list extends common_class {
             return false;
         }
     }
+    
 
 }

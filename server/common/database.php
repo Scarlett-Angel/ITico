@@ -39,10 +39,11 @@ class common_database extends common_class {
      * $query
      *      string containing query to be executed with ? standing in place of the values taken from $input array
      */
-    function execute_query($input_array, $query, $return_columns) {
+     function execute_query($input_array, $query, $return_columns) {
         /*
          * statement will return true if database connection is successfully created.
          */
+        
         if ($stmt = DB::cxn()->prepare($query)) {
             /*
              * create these variables as empty strings so that they can be prepended/appended to
@@ -82,6 +83,7 @@ class common_database extends common_class {
                 $i++;
             }
             $bind_statement = '$stmt->bind_result(' . $bind_result_param . ');';
+         
             eval($bind_statement);
             /*
              * create the statement to put all the returning values into an array
@@ -92,13 +94,13 @@ class common_database extends common_class {
                 $row_set_statement . $i > 0 ? ',' : '';
                 $row_set_statement = $row_set_statement . '$col' . $i;
                 $i++;
-                $row_set_statement . $i === $return_columns ? ');' : '';
+                $row_set_statement .= $i == $return_columns ? ');' : '';
             }
-            echo $row_set_statement;
             while ($row = $stmt->fetch()) {
                 eval($row_set_statement);
             }
-            return $row_set;
+           // return $row_set;
+            return isset($row_set) ? $row_set : false;
         }
     }
 

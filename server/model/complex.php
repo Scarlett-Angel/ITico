@@ -14,10 +14,12 @@
  */
 class model_complex extends common_database {
     function __contstruct() {
-        $this->private_location = '/model/complex.php';
+        parent::__construct();
+        $this->get_set('location','/model/complex.php');
     }
     
     function id_to_complex_string($id){
-         return $this->id_to_value($id, 'SELECT value FROM complex WHERE id = ?');
+        $word = $this->execute_query(array($id), 'SELECT value FROM complex WHERE id = ?', 1);
+        return $word[0];
     }
 }

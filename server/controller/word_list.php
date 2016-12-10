@@ -12,9 +12,17 @@
  * @author user
  */
 class controller_word_list extends common_list {
-
     function __construct() {
-        $this->get_set( 'type', 'word_list');
         $this->get_set('location', '/controller/word_list.php');
+    }
+    
+    function random_word($id=null){
+        $model_world_list = new model_word_list;
+        $mod_word = new model_word;
+       return  $mod_word->id_to_word($model_world_list->id_to_rand_word_id($id));
+        
+    }
+    function load_list($id=null){
+        
     }
 }

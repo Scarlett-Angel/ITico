@@ -16,7 +16,8 @@ and open the template in the editor.
         echo '<ul><li><strong>word_id</strong> send word id to model and return a word<br/>';
       // echo isset($_GET['word_id']) ? $word->id_to_word($_GET['word_id']) : 'cant find word to match that id';
         echo '</li></ul>';
-        echo $word->id_to_word($_GET['word_id']);
+        $word= $word->id_to_word($_GET['word_id']);
+        echo$word[0];
         ?>
     </body>
 </html>

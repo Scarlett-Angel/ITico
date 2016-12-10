@@ -12,12 +12,12 @@
  * @author user
  */ 
 class model_word extends common_database{
-    function __contstruct(){
+    function __construct(){
         parent::__construct();
         $this->get_set('location','/model/word.php');
     }
     public function id_to_word($id) {
-        $word = $this->execute_query([$id], 'SELECT word FROM word WHERE id = ?', 2);
+        $word = $this->execute_query(array($id), 'SELECT word FROM word WHERE id = ?', 1);
         return $word[0];
     }
 }
