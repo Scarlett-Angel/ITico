@@ -9,11 +9,21 @@ var cameraLong;
 var cameraTimestamp;
 var destinationType;
 
+function error(err) {
+	  console.warn('ERROR(' + err.code + '): ' + err.message);
+};
+
+var options = {
+	  enableHighAccuracy: true,
+	  timeout: 5000,
+	  maximumAge: 0
+};
+
 function capturePhoto(){
     navigator.camera.getPicture(savePhoto,null,{sourceType:1,quality:60});
 }
 function savePhoto(data){
- navigator.geolocation.getCurrentPosition(GeoSuccess, geoFail);
+ navigator.geolocation.getCurrentPosition(GeoSuccess, error, options);
  var db = window.sqlitePlugin.openDatabase({name: "my.db"});
  
  
